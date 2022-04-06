@@ -1,11 +1,11 @@
 import React from 'react';
-import Form from './Form/Form';
+import './App.css';
+import Header from './Components/Header';
 
 const App = () => {
   return (
     <div>
-      <h1>Technical Share</h1>
-      <Form />
+      <Header />
     </div>
   );
 };
