@@ -9,14 +9,28 @@ const Userpost = () => {
   const [descricao, setDescricao] = React.useState('');
   function handleSubmit(event) {
     event.preventDefault();
-    console.log({
-      username,
-      password,
-      email,
-      nivel,
-      conhecimento,
-      descricao,
-    });
+    fetch('httpnaosei', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        password,
+        email,
+        nivel,
+        conhecimento,
+        descricao,
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        return json;
+      });
   }
   return (
     <form onSubmit={handleSubmit}>
