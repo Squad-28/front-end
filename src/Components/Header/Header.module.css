@@ -1,8 +1,12 @@
-.header{
-  background-color: red;
+.header{ 
+  padding: 30px;
+  background-color: #F94000;
 }
 .titulo{
-  font-size: 30px;
+  font-size: 45px;
+}
+.subtitulos{
+  font-size: 20px;
 }
 .navegacao{
 

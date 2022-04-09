@@ -6,27 +6,40 @@ const QueroAjuda = () => {
       <section className={styles.fundo}>
         <div className={styles.container1}>
           <h1 className={styles.titulo}>Quero ajuda!</h1>
+
           <h2 className={styles.subtitulo}>
             Quais as habilidades necessárias?
           </h2>
+
           <p>Adicione as habilidades ou/e selecione abaixo</p>
           <input type="search" className={styles.put} />
         </div>
+
+        <div className={styles.containerfilho}>
+          <ul className={styles.box}>
+            <li>Figma</li>
+            <li>Adobe XD</li>
+            <li>HTML5</li>
+            <li>NODEJS</li>
+            <li>UX</li>
+            <li>SQL</li>
+            <li>Pesquisa do usuario</li>
+            <li>UI</li>
+            <li>Java</li>
+          </ul>
+        </div>
+
         <div className={styles.container2}>
-          <p>Qual o seu nível de urgência?</p>
-          <div>
-            <input type="radio" id="agora" name="marca" />
-            <label for="agora">Agora!</label>
+          <h2 className={styles.subtitulo}>Qual o seu nível de urgência?</h2>
+
+          <div className={styles.jeito}>
+            <ul>
+              <li className={styles.jeitofilho}>Agora!</li>
+              <li className={styles.jeitofilho}>Posso Esperar!</li>
+              <li className={styles.jeitofilho}>Tanto Faz!</li>
+            </ul>
           </div>
-          <div>
-            <input type="radio" id="esperar" name="marca" />
-            <label for="esperar">Posso esperar!</label>
-          </div>
-          <div>
-            <input type="radio" id="tanto" name="marca" />
-            <label for="tanto">Tanto faz!</label>
-          </div>
-          <button>Buscar</button>
+          <button className={styles.aperta}>Buscar</button>
         </div>
         <div className={styles.container3}>
           <h2 className={styles.subtitulo}>Mentores disponíveis</h2>

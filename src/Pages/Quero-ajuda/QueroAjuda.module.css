@@ -2,24 +2,72 @@
 margin-left: 50px;
 }
 .titulo{
-  font-size: 50px;
+  font-size: 100px;
 }
 .subtitulo{
   font-size:25px;
 }
 
 .put{
-  border: solid 1px red;
+  border: solid 2px black;
+  border-radius: 5px;
+  padding: 12px;
+  width: 35%
+}
+
+.container1{
+  margin-top: 70px;
 }
 .container2{
   margin-top: 50px;
   display: block;
 }
+
 .container3{
   margin-top: 50px;
 }
-button{
-
+.aperta{
+padding: 8px 100px;
   border: solid 1px aqua;
   border-radius: 5px;
+  font-size:20px
+}
+.aperta:hover{
+  background-color: #4B4FA1;
+}
+.box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+li{
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 5px;
+  
+  
+}
+li:hover{
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+.containerfilho{
+  margin-top: 20px;
+  
+  width: 400px;
+  height: 100px;
+}
+.for{
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 2px;
+
+}
+.jeito{
+  max-width: 150px;
+}
+.jeitofilho{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
