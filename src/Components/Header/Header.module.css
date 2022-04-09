@@ -1,0 +1,11 @@
+.navegacao{
+
+  display: flex;
+ 
+ justify-content: space-between;
+}
+.navegacao2{
+  display: flex;
+   gap: 20px;
+
+}
