@@ -1,8 +1,16 @@
+.header{
+  background-color: red;
+}
+.titulo{
+  font-size: 30px;
+}
 .navegacao{
 
   display: flex;
- 
  justify-content: space-between;
+ align-items: center;
+ height: 4rem;
+ margin-right: 20px;
 }
 .navegacao2{
   display: flex;

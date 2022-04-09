@@ -1,0 +1,25 @@
+.fundo {
+margin-left: 50px;
+}
+.titulo{
+  font-size: 50px;
+}
+.subtitulo{
+  font-size:25px;
+}
+
+.put{
+  border: solid 1px red;
+}
+.container2{
+  margin-top: 50px;
+  display: block;
+}
+.container3{
+  margin-top: 50px;
+}
+button{
+
+  border: solid 1px aqua;
+  border-radius: 5px;
+}
