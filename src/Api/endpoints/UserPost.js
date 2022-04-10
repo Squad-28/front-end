@@ -1,4 +1,5 @@
 import React from 'react';
+import Apis from '../Apis';
 
 const Userpost = () => {
   const [username, setUsername] = React.useState('');
@@ -9,7 +10,7 @@ const Userpost = () => {
   const [descricao, setDescricao] = React.useState('');
   function handleSubmit(event) {
     event.preventDefault();
-    fetch('httpnaosei', {
+    fetch('http://localhost:5500/api', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
