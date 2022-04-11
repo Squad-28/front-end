@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.css";
 
-import Nav from "./Nav";
+import Nav from "../../components/Nav";
 import Search from "./Search";
 import Mentors from "./Mentors";
 
