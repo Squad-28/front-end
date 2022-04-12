@@ -1,14 +1,13 @@
-import React from "react";
+import React from 'react';
+import './styles.css';
 
-import "./styles.css";
-
-import Nav from "../../components/Nav";
-import Search from "./Search";
-import Mentors from "./Mentors";
+import Nav from '../../components/Nav';
+import Search from './Search';
+import Mentors from './Mentors';
 
 const HomePage = () => {
   const handleLogout = () => {
-    console.log("logout");
+    console.log('logout');
   };
 
   const handleSearch = (query) => {
