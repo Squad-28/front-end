@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLogin from '../../components/NavLogin';
 import FotoCadastro from './../../components/assets/fotocadastro.svg';
-
+import './style.css';
 const Cadastro = () => {
   return (
     <div>
@@ -12,11 +12,11 @@ const Cadastro = () => {
           <span> Technical Share</span>
         </h2>
       </div>
-      <div>
+      <div className="container45">
         <div>
-          <img src={FotoCadastro} alt="foto login" />
+          <img src={FotoCadastro} alt="foto Cadastrar" />
         </div>
-        <div>
+        <div id="Cadastrar">
           <h1>Cadastro</h1>
           <p>Cadastrar sua conta</p>
           <form action="">
@@ -34,11 +34,19 @@ const Cadastro = () => {
             </div>
             <div className="field">
               <label htmlFor="Senha">Senha</label>
-              <input type="pasword" name="Senha" id="Senha" />
+              <input type=" password" name="Senha" id="Senha" />
             </div>
             <div className="field">
               <label htmlFor="Habilidades">Habilidades</label>
               <input type="search" name="Habilidades" id="Habilidades" />
+            </div>
+            <div className="actions">
+              <button type="submit">Cadastrar</button>
+            </div>
+            <div className="batido">
+              <p>
+                Não possui conta? <a href="">Cadastre-se.</a>{' '}
+              </p>
             </div>
           </form>
         </div>
