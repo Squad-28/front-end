@@ -6,7 +6,7 @@ const Nav = ({ onLogout }) => {
   return (
     <div className="nav">
       <div className="grid justify-items-center">
-        <div className=" container flex justify-between">
+        <div className="container flex justify-between">
           <h1 className="logo py-6">Technical Share</h1>
           <div className="nav-items flex  items-center px-14">
             <ul className="flex flex-row items-center gap-10">
