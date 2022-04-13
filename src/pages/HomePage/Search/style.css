@@ -33,6 +33,11 @@
   margin-right: 20px;
 }
 
+.techs li:hover {
+  background-color: #464675;
+  color: #fff;
+}
+
 .urgencia span {
   border: 1px solid #a7a7a7;
   border-radius: 6px;
@@ -41,6 +46,11 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.urgencia span:hover {
+  background-color: #464675;
+  color: #fff;
 }
 
 .urgencia a {
@@ -54,10 +64,11 @@
 .search-button {
   width: 320px;
   height: 58px;
-  border: 2px solid #9c9c9c;
+  background-color: #464675;
   box-sizing: border-box;
   border-radius: 6px;
   font-weight: 600;
   font-size: 22px;
   margin-top: 25px;
+  color: #fff;
 }
