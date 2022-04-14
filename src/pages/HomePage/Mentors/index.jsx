@@ -1,8 +1,8 @@
-import CardUser from '../../../components/CardUser';
+import CardUser from "../../../components/CardUser";
 
-import './style.css';
+import "./style.css";
 
-const Mentors = ({ users }) => {
+const Mentors = ({ users, onProfile }) => {
   return (
     <div className="grid justify-items-center pl-28 ">
       <div className="container">
@@ -16,7 +16,7 @@ const Mentors = ({ users }) => {
           </p>
         </div>
         <div className="container-card">
-          <CardUser users={users} />
+          <CardUser users={users} onProfile={onProfile} />
         </div>
       </div>
     </div>

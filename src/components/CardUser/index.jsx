@@ -1,10 +1,9 @@
-import './style.css';
-import Teams from '../assets/bxl_microsoft-teams.svg';
+import "./style.css";
+import Teams from "../assets/bxl_microsoft-teams.svg";
 
 import { Link } from "react-router-dom";
 
-const CardUser = ({ users }) => {
- 
+const CardUser = ({ users, onProfile }) => {
   return (
     <>
       {users.map((user) => (
@@ -36,7 +35,7 @@ const CardUser = ({ users }) => {
               <p className="now">agora</p>
               <Link to="/perfil">
                 {" "}
-                <button className="my-9" >
+                <button className="my-9" onClick={() => onProfile(user)}>
                   Conectar!
                 </button>{" "}
               </Link>
