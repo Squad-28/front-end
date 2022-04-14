@@ -13,14 +13,24 @@ function App() {
   const [users, setUsers] = useState([]);
   const [userProfile, setUserProfile] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+  const [loadingError, setLoadingError] = useState(false);
+
   const loadData = async () => {
     try {
+      setLoading(true);
+
       const response = await getUsers();
 
       const { users } = response.data;
+
       setUsers(users);
+
+      setLoading(false);
     } catch (err) {
       console.error(err);
+
+      return setLoadingError(true);
     }
   };
 
@@ -29,6 +39,8 @@ function App() {
   }, []);
 
   const handleProfile = async (user) => {
+    setLoading(true);
+    
     const userInArr = Object.assign([user]);
 
     const userP = await userInArr;
@@ -36,6 +48,8 @@ function App() {
     //console.log(userP);
 
     setUserProfile(userP);
+
+    setLoading(false);
   };
 
   const loadProfile = async (userProfile) => {
@@ -48,12 +62,30 @@ function App() {
       // console.log(userPerfil);
     } catch (err) {
       console.error(err);
+
+      return setLoadingError(true);
     }
   };
 
   useEffect(() => {
     (async () => await loadProfile(userProfile))();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <p>Carregando...</p>
+      </div>
+    );
+  }
+
+  if (loadingError) {
+    return (
+      <div className="loading">
+        <p>Erro ao carregar dados.</p>
+      </div>
+    );
+  }
 
   return (
     <Router>
