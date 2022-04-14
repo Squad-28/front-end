@@ -34,3 +34,21 @@ api.interceptors.response.use(
     return Promise.reject(err);
   }
 );
+
+export const getUsers = async () => {
+  let url = `/users`;
+
+  const response = await api.get(url);
+
+  return response;
+};
+
+export const getUser = async (userId) => {
+  let url = `/users/${userId}`;
+
+  const response = await api.get(url);
+
+  return response;
+};
+
+export default api;
