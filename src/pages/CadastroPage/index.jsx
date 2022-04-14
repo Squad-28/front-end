@@ -1,6 +1,7 @@
 import React from 'react';
 import NavLogin from '../../components/NavLogin';
 import FotoCadastro from './../../components/assets/fotocadastro.svg';
+import Adicionar from './../../components/assets/Icon-adicionar.svg';
 import './style.css';
 const Cadastro = () => {
   return (
@@ -45,7 +46,7 @@ const Cadastro = () => {
             </div>
             <div className="batido">
               <p>
-                Não possui conta? <a href="">Cadastre-se.</a>{' '}
+                já possui conta? <a href="">Logar.</a>{' '}
               </p>
             </div>
           </form>
