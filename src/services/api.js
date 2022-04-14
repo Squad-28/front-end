@@ -1,5 +1,9 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://squad-28-technical-share.herokuapp.com/",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
 });
