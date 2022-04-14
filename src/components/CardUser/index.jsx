@@ -3,7 +3,7 @@ import Teams from '../assets/bxl_microsoft-teams.svg';
 
 import { Link } from "react-router-dom";
 
-const CardUser = ({ users, onPerfil }) => {
+const CardUser = ({ users }) => {
  
   return (
     <>
