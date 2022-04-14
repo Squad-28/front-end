@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import infoIcon from "./assets/info-icon.svg";
 import toggleIcon from "./assets/toggle.svg";
 
@@ -8,6 +6,8 @@ import Nav from "../../components/Nav";
 import "./styles.css";
 
 const PerfilPage = ({ userProfile, setUserProfile }) => {
+
+  console.log(userProfile)
 
   return (
     <div>

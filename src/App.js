@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { getUsers, getUser } from "./services/api";
 
@@ -40,7 +40,7 @@ function App() {
 
   const handleProfile = async (user) => {
     setLoading(true);
-    
+
     const userInArr = Object.assign([user]);
 
     const userP = await userInArr;
@@ -69,6 +69,7 @@ function App() {
 
   useEffect(() => {
     (async () => await loadProfile(userProfile))();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
@@ -93,14 +94,14 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/"
-          element={<HomePage users={users} onProfilel={handleProfile} />}
+          element={<HomePage users={users} onProfile={handleProfile} />}
         />
         <Route
           path="/profile"
           element={
             <PerfilPage
-              userPerfil={userProfile}
-              setUserPerfil={setUserProfile}
+              userProfile={userProfile}
+              setUserProfile={setUserProfile}
             />
           }
         />

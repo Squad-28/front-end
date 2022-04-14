@@ -26,14 +26,14 @@ const CardUser = ({ users, onProfile }) => {
               <p className="card-skills-title my-3">Habilidades</p>
               <div className="card-skills-techs">
                 <ul>
-                  {user.knowledges.map((knowledge) => (
-                    <li key={knowledge.name}>{knowledge.name}</li>
+                  {user.knowledges.map((knowledge, index) => (
+                    <li key={index}>{knowledge.name}</li>
                   ))}
                 </ul>
               </div>
               <p className="card-skills-p mt-10">Disponibilidade</p>
               <p className="now">agora</p>
-              <Link to="/perfil">
+              <Link to="/profile">
                 {" "}
                 <button className="my-9" onClick={() => onProfile(user)}>
                   Conectar!
