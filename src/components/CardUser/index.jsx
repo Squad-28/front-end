@@ -33,10 +33,10 @@ const CardUser = ({ users }) => {
                 </ul>
               </div>
               <p className="card-skills-p mt-10">Disponibilidade</p>
-              <p className="detalhe">agora</p>
+              <p className="now">agora</p>
               <Link to="/perfil">
                 {" "}
-                <button className="my-9" onClick={() => onPerfil(user)}>
+                <button className="my-9" >
                   Conectar!
                 </button>{" "}
               </Link>
