@@ -1,23 +1,29 @@
-import React from 'react';
-import './style.css';
-import FotoPerfil from '../assets/fotoPerfil.svg';
+import { Link } from "react-router-dom";
+
+import FotoPerfil from "../assets/fotoPerfil.svg";
+
+import "./style.css";
 
 const Nav = ({ onLogout }) => {
   return (
     <div className="nav">
       <div className="grid justify-items-center">
         <div className="container flex justify-between">
-          <h1 className="logo py-6">Technical Share</h1>
+          <Link to="/">
+            <h1 className="logo py-6">Technical Share</h1>
+          </Link>
           <div className="nav-items flex  items-center px-14">
             <ul className="flex flex-row items-center gap-10">
               <li>
-                <p>Home</p>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <p>quero ser mentor</p>
+                <Link to="/register">quero ser mentor</Link>
               </li>
               <li>
-                <img src={FotoPerfil} alt="foto de pefil" width={42} />
+                <Link to="/profile">
+                  <img src={FotoPerfil} alt="foto de pefil" width={42} />
+                </Link>
               </li>
               <li>
                 <p>
