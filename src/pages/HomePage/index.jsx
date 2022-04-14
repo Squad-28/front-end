@@ -5,7 +5,7 @@ import Nav from '../../components/Nav';
 import Search from './Search';
 import Mentors from './Mentors';
 
-const HomePage = () => {
+const HomePage = ({ users }) => {
   const handleLogout = () => {
     console.log('logout');
   };
@@ -17,8 +17,8 @@ const HomePage = () => {
   return (
     <div id="home">
       <Nav onLogout={handleLogout} />
-      <Search onSearch={handleSearch} on />
-      <Mentors />
+      <Search onSearch={handleSearch} />
+      <Mentors users={users} />
     </div>
   );
 };

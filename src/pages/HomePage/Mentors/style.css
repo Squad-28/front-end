@@ -13,3 +13,9 @@
   font-size: 18px;
   color: #636363;
 }
+
+.container-card {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
