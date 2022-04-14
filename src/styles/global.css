@@ -2,12 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
   background-color: #fafafa;
+}
+
+.react-modal-overlay {
+  
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-modal-content {
+  background-color: #2b2b3b;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 600px;
+  max-width: 600px;
+  height: max-content;
+
+  background: #2b2b3b;
+  border-radius: 8px;
+  padding: 24px 43px;
+}
+
+.react-modal-content h1 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 36px;
+  text-align: center;
+
+  color: #f8f8f8;
+  margin-top: 76px;
+  margin-bottom: 26px;
+}
+
+.react-modal-content p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+
+  color: #ffffff;
+  margin: 48px;
+}
+
+.react-modal-content p span {
+  color: #ffc555;
+  font-weight: 600;
+}
+
+.react-modal-content-actions {
+  display: flex;
+  justify-content: center;
+  text-align: right;
+  margin-bottom: 83px;
+
+}
+
+
+.react-modal-content-actions .btn-1 button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 21.8253px;
+  margin-right: -20px;
+  width: 189.61px;
+  height: 54.56px;
+
+  border: 1px solid #ffffff;
+
+  border-radius: 40.9224px;
+
+  background-color: transparent;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 32.7379px;
+}
+
+
+
+.react-modal-content-actions .btn-2 button {
+  
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 21px;
+  margin-left: -20px;
+  width: 189.61px;
+  height: 54.56px;
+
+  background: #f9a826;
+  color: #2b2b3b;
+  border-radius: 40.9224px;
+
+
+  margin: 0px 32.7379px;
+}
+
+
+
+.react-modal-close {
+  width: max-content;
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  top: 24px;
+  right: 3px;
+  border: 0;
+  background-color: transparent;
+  transition: filter 0.2s;
+}
+
+.react-modal-close img {
+  transition: 0.2s;
+}
+
+.react-modal-close img:hover {
+  filter: brightness(0.6);
 }

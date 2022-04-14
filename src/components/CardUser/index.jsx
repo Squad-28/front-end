@@ -2,10 +2,25 @@ import "./style.css";
 import Teams from "../assets/bxl_microsoft-teams.svg";
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
+import ConfirmModal from '../ConfirmModal'
 
 const CardUser = ({ users, onProfile }) => {
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+
+  const handleOpenConfirmModal = () => {
+    setIsConfirmModalOpen(true);
+  };
+
+  const handleCloseConfirmModal = () => {
+    setIsConfirmModalOpen(false);
+  };
+
   return (
+   
     <>
+     <ConfirmModal isOpen={isConfirmModalOpen} onRequestClose={handleCloseConfirmModal}/>
       {users.map((user) => (
         <div key={user.id} className="card-container">
           <div className="container flex flex-col">
@@ -33,12 +48,12 @@ const CardUser = ({ users, onProfile }) => {
               </div>
               <p className="card-skills-p mt-10">Disponibilidade</p>
               <p className="now">agora</p>
-              <Link to="/profile">
-                {" "}
-                <button className="my-9" onClick={() => onProfile(user)}>
-                  Conectar!
-                </button>{" "}
-              </Link>
+              <button
+                className="my-9"
+                onClick={handleOpenConfirmModal}
+              >
+                Conectar!
+              </button>
             </div>
           </div>
         </div>
