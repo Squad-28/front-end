@@ -47,6 +47,7 @@
 .register-content .register-field {
   display: block;
   margin-top: 32px;
+  position: relative;
 }
 
 .register-content label {
@@ -62,6 +63,14 @@
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
+}
+.register-content .register-field span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin-top: 50px;
+  color:  #ff0033;
+  font-size: 14px;
 }
 
 .register-field-addIcon {
