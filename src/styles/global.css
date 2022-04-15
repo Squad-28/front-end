@@ -12,6 +12,10 @@ body {
   background-color: #fafafa;
 }
 
+[disabled] {
+  filter: brightness(0.8);
+}
+
 .react-modal-overlay {
   display: flex;
   justify-content: center;

@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { useState, useRef, useEffect } from "react";
 
+import { v4 as uuidv4 } from "uuid";
+
+import { createUser } from "../../services/api";
 import { Link } from "react-router-dom";
 
 import FotoCadastro from "./assets/fotocadastro.svg";
@@ -11,41 +12,111 @@ import addIcon from "./assets/add-icon.svg";
 import NavLogin from "../../components/NavLogin";
 
 import "./style.css";
-import { useState } from "react";
 
-const registerSchema = yup
-  .object({
-    name: yup.string().required("O nome é obrigatório."),
-    position: yup.string().required("O cargo é obrigatório."),
-    email: yup
-      .string()
-      .email("Digite um email válido.")
-      .required("O email é obrigatório."),
-    password: yup
-      .string()
-      .min(8, "A senha deve ter pelo menos 8 digitos.")
-      .required("A senha é obrigatória."),
-  })
-  .required();
-
-const Register = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(registerSchema),
-  });
-  
+const Register = ({ users, setUsers }) => {
   const [userName, setUserName] = useState("");
-  const [userPosition, setUserPosition] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [userPassword, setUserPassword] = useState("");
-  const [userSkills, setUserSkills] = useState([]);
 
-  const onRegister = (userData) => {
-    console.log(userData);
+  const [userEmail, setUserEmail] = useState("");
+  const [userLevel, setUserLevel] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  const [skills, setSkills] = useState([]);
+  const [newSkillName, setNewSkillName] = useState("");
+
+  const [error, setError] = useState(false);
+
+  const inputSkill = useRef();
+  const addSkillButton = useRef();
+
+  const [status, setStatus] = useState({
+    type: "",
+    msg: "",
+  });
+
+  useEffect(() => {
+    setStatus("");
+  }, [userName, userEmail, userLevel, userPassword]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    const user = {
+      name: userName,
+      email: userEmail,
+      level: userLevel,
+      password: userPassword,
+      skills: skills,
+    };
+
+    try {
+      const response = await createUser(user);
+
+      setUsers((oldState) => [...oldState, response]);
+
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+
+      return setError(true);
+    }
+  };
+
+  const windowReload = (e) => {
+    if (e) {
+      window.location.reload();
+    }
+  };
+
+  if (error) {
+    return (
+      <div className="loading">
+        <p>
+          Erro ao criar a conta. Clique
+          <Link to="/register">
+            <span onClick={windowReload}>aqui</span>
+          </Link>
+          para recarregar a pagína.
+        </p>
+      </div>
+    );
+  }
+
+  const validate = () => {
+    if (!userName.trim())
+      return setStatus({ type: "name", msg: "O nome é obrigatório." });
+
+    if (!userLevel.trim())
+      return setStatus({ type: "level", msg: "O cargo é obrigatório." });
+
+    if (!userEmail.trim()) {
+      return setStatus({ type: "email", msg: "O email é obrigatório." });
+    }
+
+    if (!userPassword.trim()) {
+      return setStatus({ type: "password", msg: "A senha é obrigatória." });
+    }
+
+    return true;
+  };
+
+  const handleAddNewSkill = () => {
+    if (!newSkillName) return;
+
+    const newSkill = {
+      id: uuidv4(),
+      name: newSkillName,
+    };
+
+    setSkills((oldState) => [...oldState, newSkill]);
+    setNewSkillName("");
+  };
+
+  const handleRemoveSkill = (id) => {
+    const skillRemoved = skills.filter((skill) => skill.id !== id);
+
+    setSkills(skillRemoved);
   };
 
   return (
@@ -64,64 +135,85 @@ const Register = () => {
         <div className="register-content">
           <h1>Cadastro</h1>
           <p>Cadastrar sua conta</p>
-          <form onSubmit={handleSubmit(onRegister)}>
+          <form onSubmit={handleSubmit}>
             <div className="register-field">
               <label htmlFor="name">Nome:</label>
               <input
                 type="text"
                 id="name"
-                {...register("name", { required: true })}
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
               />
-              <span>{errors.name?.message}</span>
+              {status.type === "name" ? <span>{status.msg}</span> : ""}
             </div>
             <div className="register-field">
-              <label htmlFor="position">Cargo:</label>
+              <label htmlFor="level">Cargo:</label>
               <input
                 type="text"
-                id="position"
-                {...register("position", { required: true })}
+                id="level"
+                value={userLevel}
+                onChange={(e) => setUserLevel(e.target.value)}
               />
-              <span>{errors.position?.message}</span>
+              {status.type === "level" ? <span>{status.msg}</span> : ""}
             </div>
             <div className="register-field">
               <label htmlFor="email">Seu e-mail do Teams:</label>
               <input
                 type="email"
                 id="email"
-                {...register("email", { required: true })}
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
               />
-              <span>{errors.email?.message}</span>
+              {status.type === "email" ? <span>{status.msg}</span> : ""}
             </div>
             <div className="register-field">
               <label htmlFor="password">Senha</label>
               <input
                 type="password"
                 id="password"
-                {...register("password", { required: true })}
+                value={userPassword}
+                onChange={(e) => setUserPassword(e.target.value)}
               />
-              <span>{errors.password?.message}</span>
+              {status.type === "password" ? <span>{status.msg}</span> : ""}
             </div>
             <div className="register-field">
               <label htmlFor="skills">Habilidades</label>
               <div className="register-field-addIcon">
-                <input type="text" id="skills" />
-                <img src={addIcon} alt="" className="register-addIcon" />
-              </div>
-
-              <div className="register-field-skills">
-                <ul>
-                  {/*onClick add skill para knowledges*/}
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                  <li>Figma</li>
-                </ul>
+                <input
+                  type="text"
+                  id="skills"
+                  value={newSkillName}
+                  ref={inputSkill}
+                  onChange={(e) => setNewSkillName(e.target.value)}
+                />
+                <img
+                  src={addIcon}
+                  alt=""
+                  className="register-addIcon"
+                  ref={addSkillButton}
+                  onClick={handleAddNewSkill}
+                />
+                <div className="register-field-skills">
+                  <ul>
+                    {skills.map((skill) => {
+                      if (skills.length > 4) {
+                        inputSkill.current.setAttribute("disabled", "true");
+                        addSkillButton.current.setAttribute("hidden", "true");
+                      } else {
+                        inputSkill.current.removeAttribute("disabled");
+                        addSkillButton.current.removeAttribute("hidden");
+                      }
+                      return (
+                        <li
+                          key={skill.id}
+                          onClick={() => handleRemoveSkill(skill.id)}
+                        >
+                          {skill.name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="register-actions">

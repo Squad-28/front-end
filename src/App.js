@@ -10,12 +10,16 @@ import ProfilePage from "./pages/ProfilePage/index";
 import RegisterPage from "./pages/RegisterPage/index";
 
 function App() {
+  // Get All
   const [users, setUsers] = useState([]);
+
+  // Get One
   const [userProfile, setUserProfile] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(false);
 
+  // Get All
   const loadData = async () => {
     try {
       setLoading(true);
@@ -52,14 +56,14 @@ function App() {
     setLoading(false);
   };
 
+  // Get One
   const loadProfile = async (userProfile) => {
     try {
       const response = await getUser(userProfile);
-      // console.log(response);
+
       const { user } = response.data;
-      // console.log(user);
+
       setUserProfile(user);
-      // console.log(userPerfil);
     } catch (err) {
       console.error(err);
 
@@ -105,7 +109,10 @@ function App() {
             />
           }
         />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/register"
+          element={<RegisterPage users={users} setUsers={setUsers} />}
+        />
       </Routes>
     </Router>
   );

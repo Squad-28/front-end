@@ -6,7 +6,6 @@ export const api = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
- 
 });
 
 api.interceptors.request.use(
@@ -48,6 +47,14 @@ export const getUser = async (userId) => {
   let url = `/users/${userId}`;
 
   const response = await api.get(url);
+
+  return response;
+};
+
+export const createUser = async (user) => {
+  let url = `/users`;
+
+  const response = await api.post(url, user);
 
   return response;
 };
