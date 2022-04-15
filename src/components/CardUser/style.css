@@ -1,7 +1,7 @@
 .card-container {
-  transition: 0.3s;
   width: 320px;
   background-color: #fff;
+  transition: 0.3s;
 }
 
 .container {
@@ -9,19 +9,19 @@
 }
 
 .dot {
-  height: 25px;
+  display: inline-block;
   width: 25px;
+  height: 25px;
   background-color: rgb(99, 243, 86);
   border-radius: 50%;
-  display: inline-block;
 }
 
 .card-picture img {
-  height: 125px;
+  display: inline-block;
   width: 125px;
+  height: 125px;
   background-color: rgb(147, 147, 147);
   border-radius: 50%;
-  display: inline-block;
   object-fit: cover;
 }
 
@@ -31,18 +31,17 @@
 }
 
 .card-name h1 {
-  flex-shrink: 0;
-  font-weight: 600;
-  font-size: 22px;
-  color: #2b2b3b;
   flex-wrap: wrap;
   flex-shrink: 0;
+  color: #2b2b3b;
+  font-size: 22px;
+  font-weight: 600;
 }
 
-h3 {
-  font-weight: 400;
-  font-size: 14px;
+.card-container h3 {
   color: #393939;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .card-teams {
@@ -52,9 +51,9 @@ h3 {
 }
 
 .card-skills-title {
-  font-weight: 600;
-  font-size: 16px;
   color: #2b2b3b;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 
@@ -73,32 +72,32 @@ h3 {
 
 .card-skills-techs li {
   display: inline-block;
+  margin: 10px;
   padding: 5px;
   border: 1px solid #2b2b3b;
   border-radius: 6px;
-  font-weight: 500;
   font-size: 14px;
-  margin: 10px;
+  font-weight: 500;
 }
 
 .card-skills-p {
-  font-weight: 600;
-  font-size: 16px;
   color: #2b2b3b;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-button {
+.card-button {
   width: 184px;
   padding: 10px 32px;
-  border-radius: 8px;
-  background-color: #07662d;
   color: #fff;
+  background-color: #07662d;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 20px;
 }
 
-.now {
-  font-weight: 400;
-  font-size: 14px;
+.card-now {
   color: #464675;
+  font-size: 14px;
+  font-weight: 400;
 }

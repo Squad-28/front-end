@@ -6,7 +6,7 @@ import { getUsers, getUser } from "./services/api";
 
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import PerfilPage from "./pages/PerfilPage/index";
+import ProfilePage from "./pages/ProfilePage/index";
 import CadastroPage from "./pages/CadastroPage/index";
 
 function App() {
@@ -99,7 +99,7 @@ function App() {
         <Route
           path="/profile"
           element={
-            <PerfilPage
+            <ProfilePage
               userProfile={userProfile}
               setUserProfile={setUserProfile}
             />

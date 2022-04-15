@@ -10,7 +10,7 @@ const Nav = ({ onLogout }) => {
       <div className="grid justify-items-center">
         <div className="container flex justify-between">
           <Link to="/">
-            <h1 className="logo py-6">Technical Share</h1>
+            <h1 className="nav-title py-6">Technical Share</h1>
           </Link>
           <div className="nav-items flex  items-center px-14">
             <ul className="flex flex-row items-center gap-10">
@@ -27,7 +27,7 @@ const Nav = ({ onLogout }) => {
               </li>
               <li>
                 <p>
-                  Olá, <span id="nomePerfil">Clarisa!</span>
+                  Olá, <span id="nav-username">Clarisa!</span>
                 </p>
               </li>
             </ul>

@@ -1,5 +1,3 @@
-import "./styles.css";
-
 import Modal from "react-modal";
 import closeIcon from "./assets/close-icon.svg";
 

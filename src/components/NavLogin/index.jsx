@@ -1,13 +1,14 @@
-import React from 'react';
-import Iconefc from './../assets/grupo-fcamara-negativo.svg';
-import styles from './index.module.css';
+import fcamaraLogo from './assets/fcamara-logo.png'
+
+import './style.css'
+
 const NavLogin = ({ onLogout }) => {
   return (
-    <div className="nav">
+    <div className="navlogin">
       <div className="grid justify-items-center">
         <div className="container flex justify-between">
-          <h1 className="logo py-6">Technical Share</h1>
-          <img className={styles.logoimg} src={Iconefc} alt="logoFcamara" />
+          <h1 className="navlogin-title py-6">Technical Share</h1>
+          <img className="navlogin-image" src={fcamaraLogo} alt="logo FCamara" />
         </div>
       </div>
     </div>

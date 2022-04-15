@@ -13,51 +13,45 @@ body {
 }
 
 .react-modal-overlay {
-  
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-
-  display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .react-modal-content {
-  background-color: #2b2b3b;
   display: flex;
-  flex-direction: column;
   position: relative;
+  flex-direction: column;
   width: 600px;
   max-width: 600px;
   height: max-content;
-
-  background: #2b2b3b;
-  border-radius: 8px;
   padding: 24px 43px;
+  background-color: #2b2b3b;
+  border-radius: 8px;
 }
 
 .react-modal-content h1 {
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 36px;
-  text-align: center;
-
-  color: #f8f8f8;
   margin-top: 76px;
   margin-bottom: 26px;
+  color: #f8f8f8;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: center;
 }
 
 .react-modal-content p {
-  font-weight: 400;
+  margin: 48px;
+  color: #ffffff;
   font-size: 18px;
+  font-weight: 400;
   line-height: 18px;
   text-align: center;
-
-  color: #ffffff;
-  margin: 48px;
 }
 
 .react-modal-content p span {
@@ -68,62 +62,54 @@ body {
 .react-modal-content-actions {
   display: flex;
   justify-content: center;
-  text-align: right;
   margin-bottom: 83px;
-
+  text-align: right;
 }
-
 
 .react-modal-content-actions .btn-1 button {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 21.8253px;
+  padding: 21px;
   margin-right: -20px;
   width: 189.61px;
   height: 54.56px;
-
-  border: 1px solid #ffffff;
-
-  border-radius: 40.9224px;
-
   background-color: transparent;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 32.7379px;
+  border: 1px solid #ffffff;
+  border-radius: 41px;
+  margin: 0px 33px;
+  transition: filter 2s;
 }
 
-
-
 .react-modal-content-actions .btn-2 button {
-  
-  align-self: flex-end;
   display: flex;
   justify-content: center;
+  align-self: flex-end;
   align-items: center;
   padding: 21px;
+  margin: 0px 32.7379px;
   margin-left: -20px;
   width: 189.61px;
   height: 54.56px;
-
-  background: #f9a826;
   color: #2b2b3b;
+  background: #f9a826;
   border-radius: 40.9224px;
-
-
-  margin: 0px 32.7379px;
+  transition: filter 0.2s;
 }
 
-
+.react-modal-content-actions .btn-1 button:hover,
+.react-modal-content-actions .btn-2 button:hover {
+  filter: brightness(0.8);
+}
 
 .react-modal-close {
-  width: max-content;
   display: flex;
   justify-content: right;
   position: absolute;
   top: 24px;
   right: 3px;
+  width: max-content;
   border: 0;
   background-color: transparent;
   transition: filter 0.2s;

@@ -1,16 +1,18 @@
 .nav {
-  background-color: #2b2b3b;
   color: #fff;
+  background-color: #2b2b3b;
 }
 
-.logo {
-  font-weight: 600;
+.nav-title {
   font-size: 2.25rem;
+  font-weight: 600;
 }
+
 .nav-items {
-  font-weight: 400;
   font-size: 1.125rem;
+  font-weight: 400;
 }
-#nomePerfil {
+
+#nav-username {
   color: #f9a826;
 }

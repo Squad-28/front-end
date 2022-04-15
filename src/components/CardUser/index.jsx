@@ -1,7 +1,6 @@
 import "./style.css";
 import Teams from "../assets/bxl_microsoft-teams.svg";
 
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import ConfirmModal from '../ConfirmModal'
@@ -36,7 +35,7 @@ const CardUser = ({ users, onProfile }) => {
               </div>
               <h3>{user.level}</h3>
               <div className="card-teams flex justify-center my-4">
-                <img className="my-1" src={Teams} alt="icone Teams" />
+                <img className="my-1" src={Teams} alt="ícone Teams" />
               </div>
               <p className="card-skills-title my-3">Habilidades</p>
               <div className="card-skills-techs">
@@ -47,9 +46,9 @@ const CardUser = ({ users, onProfile }) => {
                 </ul>
               </div>
               <p className="card-skills-p mt-10">Disponibilidade</p>
-              <p className="now">agora</p>
+              <p className="card-now">agora</p>
               <button
-                className="my-9"
+                className="card-button my-9"
                 onClick={handleOpenConfirmModal}
               >
                 Conectar!
