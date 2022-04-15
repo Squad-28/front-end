@@ -75,9 +75,13 @@ body {
   margin-right: -20px;
   width: 189.61px;
   height: 54.56px;
+  color: #ffffff;
   background-color: transparent;
   border: 1px solid #ffffff;
   border-radius: 41px;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 33px;
   margin: 0px 33px;
   transition: filter 2s;
 }
@@ -94,7 +98,10 @@ body {
   height: 54.56px;
   color: #2b2b3b;
   background: #f9a826;
-  border-radius: 40.9224px;
+  border-radius: 41px;
+  line-height: 33px;
+  font-size: 21px;
+  font-weight: 600;
   transition: filter 0.2s;
 }
 
