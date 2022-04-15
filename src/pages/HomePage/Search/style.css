@@ -16,7 +16,7 @@
 }
 
 .search-input {
-  width: 58%;
+  width: 45%;
   position: relative;
   margin-bottom: 17px;
 }
@@ -111,5 +111,9 @@
     width: 80%;
     position: relative;
     margin-bottom: 17px;
+  }
+
+  .geral {
+    padding: 10px 0px 50px 40px;
   }
 }
