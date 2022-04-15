@@ -1,38 +1,63 @@
-import React from 'react';
-import './style.css';
-import Teams from '../assets/bxl_microsoft-teams.svg';
+import "./style.css";
+import Teams from "../assets/bxl_microsoft-teams.svg";
 
-const CardUser = () => {
+import { useState } from "react";
+
+import ConfirmModal from '../ConfirmModal'
+
+const CardUser = ({ users, onProfile }) => {
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+
+  const handleOpenConfirmModal = () => {
+    setIsConfirmModalOpen(true);
+  };
+
+  const handleCloseConfirmModal = () => {
+    setIsConfirmModalOpen(false);
+  };
+
   return (
-    <div class="card">
-      <div class="container flex flex-col">
-        <div className="flex justify-end">
-          <span class="dot mt-3 "></span>
-        </div>
-        <div className="grid justify-items-center">
-          <span class="foto mb-8"></span>
-          <h1 className='cardNames'>Bruno Souza</h1>
-          <h3>UX Designer</h3>
-          <div className="teams flex justify-center my-4">
-            <img className='my-1' src={Teams} alt="icone Teams" />
+   
+    <>
+     <ConfirmModal isOpen={isConfirmModalOpen} onRequestClose={handleCloseConfirmModal}/>
+      {users.map((user) => (
+        <div key={user.id} className="card-container">
+          <div className="container flex flex-col">
+            <div className="flex justify-end">
+              <span className="dot mt-3 "></span>
+            </div>
+            <div className="grid justify-items-center">
+              <span className="card-picture mb-8">
+                <img src={user.image} alt="" />
+              </span>
+              <div className="card-name">
+                <h1>{user.name}</h1>
+              </div>
+              <h3>{user.level}</h3>
+              <div className="card-teams flex justify-center my-4">
+                <img className="my-1" src={Teams} alt="ícone Teams" />
+              </div>
+              <p className="card-skills-title my-3">Habilidades</p>
+              <div className="card-skills-techs">
+                <ul>
+                  {user.knowledges.map((knowledge, index) => (
+                    <li key={index}>{knowledge.name}</li>
+                  ))}
+                </ul>
+              </div>
+              <p className="card-skills-p mt-10">Disponibilidade</p>
+              <p className="card-now">agora</p>
+              <button
+                className="card-button my-9"
+                onClick={handleOpenConfirmModal}
+              >
+                Conectar!
+              </button>
+            </div>
           </div>
-          <p className="skills my-3">Habilidades</p>
-          <div className="techs-card ">
-            <ul>
-              <li>Figma</li>
-              <li>Adobe XD</li>
-              <li>HTML</li>
-              <li>Scrum</li>
-              <li>Rapidão</li>
-              <li>Ninja</li>
-            </ul>
-          </div>
-          <p className="skills mt-10">Disponibilidade</p>
-          <p className="detalhe">agora</p>
-          <button className="my-9">Conectar!</button>
         </div>
-      </div>
-    </div>
+      ))}
+    </>
   );
 };
 

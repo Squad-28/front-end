@@ -1,7 +1,7 @@
-.card {
-  transition: 0.3s;
+.card-container {
   width: 320px;
   background-color: #fff;
+  transition: 0.3s;
 }
 
 .container {
@@ -9,66 +9,95 @@
 }
 
 .dot {
-  height: 25px;
+  display: inline-block;
   width: 25px;
+  height: 25px;
   background-color: rgb(99, 243, 86);
   border-radius: 50%;
-  display: inline-block;
-}
-.foto {
-  height: 125px;
-  width: 125px;
-  background-color: rgb(147, 147, 147);
-  border-radius: 50%;
-  display: inline-block;
 }
 
-.teams {
+.card-picture img {
+  display: inline-block;
+  width: 125px;
+  height: 125px;
+  background-color: rgb(147, 147, 147);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-name {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-name h1 {
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  color: #2b2b3b;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card-container h3 {
+  color: #393939;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-teams {
   width: 50%;
   border-top: 1px solid #c2d1d9;
   border-bottom: 1px solid #c2d1d9;
 }
 
-.techs-card li {
-  display: inline-block;
-  padding: 2px;
-  border: 1px solid #a7a7a7;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 14px;
-  margin: 10px;
-}
-
-.cardNames {
-  font-weight: 600;
-  font-size: 22px;
+.card-skills-title {
   color: #2b2b3b;
-}
-
-h3 {
-  font-weight: 400;
-  font-size: 14px;
-  color: #393939;
-}
-
-.skills {
-  font-weight: 600;
   font-size: 16px;
-  color: #2b2b3b;
+  font-weight: 600;
 }
 
-button {
+
+
+.card-skills-techs {
+  max-height: 98px;
+  min-height: 98px;
+  overflow-y: hidden;
+}
+
+.card-skills-techs ul {
+  display: flex;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+}
+
+.card-skills-techs li {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #2b2b3b;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card-skills-p {
+  color: #2b2b3b;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-button {
   width: 184px;
   padding: 10px 32px;
-  border-radius: 8px;
-  background-color: #07662d;
   color: #fff;
+  background-color: #07662d;
+  border-radius: 8px;
   font-weight: 600;
   font-size: 20px;
 }
 
-.detalhe {
-  font-weight: 400;
-  font-size: 14px;
+.card-now {
   color: #464675;
+  font-size: 14px;
+  font-weight: 400;
 }

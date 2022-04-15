@@ -1,0 +1,14 @@
+.navlogin {
+  background-color: #2b2b3b;
+  color: #fff;
+}
+
+.navlogin-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+.navlogin-image {
+  margin-right: 100px;
+  object-fit: contain;
+}

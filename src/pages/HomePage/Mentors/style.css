@@ -1,15 +1,21 @@
-.mentores {
+.mentors-title {
   color: #393939;
-  font-weight: 700;
   font-size: 44px;
+  font-weight: 700;
 }
 
-.disponiveis {
+.mentors-available {
   color: #07662d;
 }
 
-.conectar {
-  font-weight: 400;
-  font-size: 18px;
+.mentors-connect {
   color: #636363;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.mentors-container-card {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
 }

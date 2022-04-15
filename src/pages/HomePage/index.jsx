@@ -1,13 +1,13 @@
-import React from 'react';
-import './styles.css';
+import React from "react";
+import "./styles.css";
 
-import Nav from '../../components/Nav';
-import Search from './Search';
-import Mentors from './Mentors';
+import Nav from "../../components/Nav";
+import Search from "./Search";
+import Mentors from "./Mentors";
 
-const HomePage = () => {
+const HomePage = ({ users, onProfile }) => {
   const handleLogout = () => {
-    console.log('logout');
+    console.log("logout");
   };
 
   const handleSearch = (query) => {
@@ -17,8 +17,8 @@ const HomePage = () => {
   return (
     <div id="home">
       <Nav onLogout={handleLogout} />
-      <Search onSearch={handleSearch} on />
-      <Mentors />
+      <Search onSearch={handleSearch} />
+      <Mentors users={users} onProfile={onProfile} />
     </div>
   );
 };
