@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import addIcon from "./assets/add-icon.svg";
 
 import "./style.css";
@@ -14,7 +16,11 @@ const Search = ({ onSearch }) => {
         <h2 className="pt-10">Quais as habilidades necessárias?</h2>
         <p>Adicione as habilidades ou/e selecione abaixo</p>
         <div className="search-input">
-          <img src={addIcon} alt="adicionar tecnologia" className="search-add-icon" />
+          <img
+            src={addIcon}
+            alt="adicionar tecnologia"
+            className="search-add-icon"
+          />
           <input
             className="my-3"
             type="text"
@@ -44,12 +50,9 @@ const Search = ({ onSearch }) => {
             Os perfils abaixo serão filtrados com base na sua urgência
           </p>
           <div className="flex flex-col">
-            <span>
-              <a>Quero ajuda agora !</a>
-            </span>
-            <span>
-              <a>Quero agendar !</a>
-            </span>
+            <button className="search-help-btn"> Quero ajuda agora !</button>
+
+            <button className="search-help-btn">Quero agendar !</button>
           </div>
         </div>
 
