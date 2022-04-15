@@ -4,6 +4,7 @@ import addIcon from "./assets/add-icon.svg";
 import NavLogin from "../../components/NavLogin";
 
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -69,7 +70,7 @@ const Register = () => {
             </div>
             <div className="register-login">
               <p>
-                já possui conta? <a href="">Logar.</a>{" "}
+                já possui conta? <Link to="/login">Logar.</Link>
               </p>
             </div>
           </form>
