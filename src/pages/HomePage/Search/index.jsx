@@ -10,10 +10,10 @@ const Search = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="grid justify-items-center py-20 pl-28">
+    <div className="pl-10 py-0 sm:grid justify-items-center py-20 pl-28">
       <section className="search container">
         <h1>Quero ajuda!</h1>
-        <h2 className="pt-10">Quais as habilidades necessárias?</h2>
+        <h2 className="sm:pt-10">Quais as habilidades necessárias?</h2>
         <p>Adicione as habilidades ou/e selecione abaixo</p>
         <div className="search-input">
           <img
