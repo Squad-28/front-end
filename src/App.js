@@ -7,7 +7,7 @@ import { getUsers, getUser } from "./services/api";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage/index";
-import CadastroPage from "./pages/CadastroPage/index";
+import RegisterPage from "./pages/RegisterPage/index";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -105,7 +105,7 @@ function App() {
             />
           }
         />
-        <Route path="/register" element={<CadastroPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </Router>
   );

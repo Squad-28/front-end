@@ -5,7 +5,7 @@ import NavLogin from "../../components/NavLogin";
 
 import "./style.css";
 
-const Cadastro = () => {
+const Register = () => {
   return (
     <div>
       <NavLogin />
@@ -79,4 +79,4 @@ const Cadastro = () => {
   );
 };
 
-export default Cadastro;
+export default Register;
