@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import NavLogin from '../../components/NavLogin';
 import FotoLogin from './../../components/assets/foto-login.svg';
 
@@ -19,20 +20,20 @@ const LoginPage = () => {
       <NavLogin />
 
       <div>
-        <h2 className="titulo">
+        <h2 className="login-title">
           bem-vindo ao <br />
-          <span> Technical Share</span>
+          <span>Technical Share</span>
         </h2>
       </div>
-      <div className="container45">
+      <div className="login-container">
         <div>
           <img src={FotoLogin} alt="foto login" />
         </div>
-        <div id="login">
+        <div class="login-content">
           <h1>Login</h1>
           <p>Insira suas informações para realizar o login.</p>
-          <form className="form" onSubmit={handleLogin}>
-            <div className="field">
+          <form onSubmit={handleLogin}>
+            <div className="login-field">
               <label htmlFor="email">E-mail:</label>
               <input
                 type="email"
@@ -43,7 +44,7 @@ const LoginPage = () => {
               />
             </div>
 
-            <div className="field">
+            <div className="login-field">
               <label htmlFor="password">Senha:</label>
               <input
                 type="password"
@@ -54,12 +55,12 @@ const LoginPage = () => {
               />
             </div>
 
-            <div className="actions">
+            <div className="login-actions">
               <button type="submit">Entrar</button>
             </div>
-            <div className="batido">
+            <div className="login-register">
               <p>
-                Não possui conta? <a href="">Cadastre-se.</a>{' '}
+                Não possui conta? <Link to="/register">Cadastre-se.</Link>{' '}
               </p>
             </div>
           </form>

@@ -1,11 +1,25 @@
 import "./style.css";
 import Teams from "../assets/bxl_microsoft-teams.svg";
 
-import { Link } from "react-router-dom";
+import { useState } from "react";
+
+import ConfirmModal from '../ConfirmModal'
 
 const CardUser = ({ users, onProfile }) => {
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+
+  const handleOpenConfirmModal = () => {
+    setIsConfirmModalOpen(true);
+  };
+
+  const handleCloseConfirmModal = () => {
+    setIsConfirmModalOpen(false);
+  };
+
   return (
+   
     <>
+     <ConfirmModal isOpen={isConfirmModalOpen} onRequestClose={handleCloseConfirmModal}/>
       {users.map((user) => (
         <div key={user.id} className="card-container">
           <div className="container flex flex-col">
@@ -21,7 +35,7 @@ const CardUser = ({ users, onProfile }) => {
               </div>
               <h3>{user.level}</h3>
               <div className="card-teams flex justify-center my-4">
-                <img className="my-1" src={Teams} alt="icone Teams" />
+                <img className="my-1" src={Teams} alt="ícone Teams" />
               </div>
               <p className="card-skills-title my-3">Habilidades</p>
               <div className="card-skills-techs">
@@ -32,13 +46,13 @@ const CardUser = ({ users, onProfile }) => {
                 </ul>
               </div>
               <p className="card-skills-p mt-10">Disponibilidade</p>
-              <p className="now">agora</p>
-              <Link to="/profile">
-                {" "}
-                <button className="my-9" onClick={() => onProfile(user)}>
-                  Conectar!
-                </button>{" "}
-              </Link>
+              <p className="card-now">agora</p>
+              <button
+                className="card-button my-9"
+                onClick={handleOpenConfirmModal}
+              >
+                Conectar!
+              </button>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ export const api = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
+ 
 });
 
 api.interceptors.request.use(
