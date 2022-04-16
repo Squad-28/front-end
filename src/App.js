@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { getUsers, getUser } from "./services/api";
 
+import loadingImage from "./assets/loading.svg";
+
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage/index";
@@ -79,7 +81,13 @@ function App() {
   if (loading) {
     return (
       <div className="loading">
-        <p>Carregando...</p>
+        <img
+          src={loadingImage}
+          alt=""
+          className="loading-image"
+          loading="lazy"
+        />
+        <p className="loading-text">Carregando ...</p>
       </div>
     );
   }

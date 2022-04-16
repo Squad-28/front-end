@@ -72,13 +72,19 @@ const Register = ({ users, setUsers }) => {
   if (error) {
     return (
       <div className="loading">
-        <p>
-          Erro ao criar a conta. Clique
+        <p className="loading-text">Erro ao se registrar. </p>
+        <p className="loading-text">
           <Link to="/register">
-            <span onClick={windowReload}>aqui</span>
+            <span
+              className="loading-text"
+              id="span-error-register"
+              onClick={windowReload}
+            >
+              Clique aqui
+            </span>
           </Link>
-          para recarregar a pagína.
         </p>
+        <p className="loading-text">para recarregar a página.</p>
       </div>
     );
   }
