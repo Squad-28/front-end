@@ -3,10 +3,11 @@ import Teams from "../assets/bxl_microsoft-teams.svg";
 
 import { useState } from "react";
 
-import ConfirmModal from '../ConfirmModal'
+import ConfirmModal from "../ConfirmModal";
 
 const CardUser = ({ users, onProfile }) => {
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [teamsEmail, setTeamsEmail] = useState("");
 
   const handleOpenConfirmModal = () => {
     setIsConfirmModalOpen(true);
@@ -16,10 +17,19 @@ const CardUser = ({ users, onProfile }) => {
     setIsConfirmModalOpen(false);
   };
 
+  const handleSubmit = (user) => {
+    //console.log(user.email);
+    setTeamsEmail(`https://teams.microsoft.com/l/chat/0/0?users=${user.email}`)
+
+  };
+
   return (
-   
     <>
-     <ConfirmModal isOpen={isConfirmModalOpen} onRequestClose={handleCloseConfirmModal}/>
+      <ConfirmModal
+        isOpen={isConfirmModalOpen}
+        onRequestClose={handleCloseConfirmModal}
+        onTeams={teamsEmail}
+      />
       {users.map((user) => (
         <div key={user.id} className="card-container">
           <div className="container flex flex-col">
@@ -49,7 +59,10 @@ const CardUser = ({ users, onProfile }) => {
               <p className="card-now">agora</p>
               <button
                 className="card-button my-9"
-                onClick={handleOpenConfirmModal}
+                onClick={() => {
+                  handleOpenConfirmModal();
+                  handleSubmit(user);
+                }}
               >
                 Conectar!
               </button>

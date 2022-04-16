@@ -1,7 +1,11 @@
 import Modal from "react-modal";
 import closeIcon from "./assets/close-icon.svg";
 
-const ConfirmModal = ({ isOpen, onRequestClose }) => {
+const ConfirmModal = ({ isOpen, onRequestClose, onTeams }) => {
+  const handleTeams = () => {
+    window.location.href = onTeams;
+  };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -17,8 +21,8 @@ const ConfirmModal = ({ isOpen, onRequestClose }) => {
           Tem certeza que deseja <br /> contectar?
         </h1>
         <p>
-          Ao clicar em <span>sim</span>, você será direcionado <br /> para a plataforma{" "}
-          <span>Teams</span>.
+          Ao clicar em <span>sim</span>, você será direcionado <br /> para a
+          plataforma <span>Teams</span>.
         </p>
       </div>
 
@@ -27,7 +31,7 @@ const ConfirmModal = ({ isOpen, onRequestClose }) => {
           <button onClick={onRequestClose}>Não</button>
         </div>
         <div className="btn-2">
-          <button onClick={onRequestClose}>Sim</button>
+          <button onClick={handleTeams}>Sim</button>
         </div>
       </div>
     </Modal>
