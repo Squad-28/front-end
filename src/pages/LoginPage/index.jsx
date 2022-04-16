@@ -1,18 +1,41 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import NavLogin from '../../components/NavLogin';
-import FotoLogin from './../../components/assets/foto-login.svg';
+import React, { useState } from "react";
 
-import './styles.css';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+import { Link } from "react-router-dom";
+
+import NavLogin from "../../components/NavLogin";
+import FotoLogin from "./../../components/assets/foto-login.svg";
+
+import "./styles.css";
+
+const loginSchema = yup
+  .object({
+    email: yup
+      .string()
+      .email("Digite um email válido.")
+      .required("O email é obrigatório."),
+    password: yup.string().required("A senha é obrigatória."),
+  })
+  .required();
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(loginSchema),
+  });
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log(email);
-    console.log(password);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onLogin = (userData) => {
+    console.log(userData);
   };
 
   return (
@@ -29,30 +52,28 @@ const LoginPage = () => {
         <div>
           <img src={FotoLogin} alt="foto login" />
         </div>
-        <div class="login-content">
+        <div className="login-content">
           <h1>Login</h1>
           <p>Insira suas informações para realizar o login.</p>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleSubmit(onLogin)}>
             <div className="login-field">
               <label htmlFor="email">E-mail:</label>
               <input
-                type="email"
-                name="email"
+                type="text"
                 id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                {...register("email", { required: true })}
               />
+              <span>{errors.email?.message}</span>
             </div>
 
             <div className="login-field">
               <label htmlFor="password">Senha:</label>
               <input
                 type="password"
-                name="password"
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                {...register("password", { required: true })}
               />
+              <span>{errors.password?.message}</span>
             </div>
 
             <div className="login-actions">
@@ -60,7 +81,7 @@ const LoginPage = () => {
             </div>
             <div className="login-register">
               <p>
-                Não possui conta? <Link to="/register">Cadastre-se.</Link>{' '}
+                Não possui conta? <Link to="/register">Cadastre-se.</Link>{" "}
               </p>
             </div>
           </form>

@@ -3,19 +3,28 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { getUsers, getUser } from "./services/api";
+import Modal from 'react-modal';
+
+import loadingImage from "./assets/loading.svg";
 
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage/index";
 import RegisterPage from "./pages/RegisterPage/index";
 
-function App() {
+Modal.setAppElement('#root');
+
+const App = () => {
+  // Get All
   const [users, setUsers] = useState([]);
+
+  // Get One
   const [userProfile, setUserProfile] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(false);
 
+  // Get All
   const loadData = async () => {
     try {
       setLoading(true);
@@ -52,14 +61,14 @@ function App() {
     setLoading(false);
   };
 
+  // Get One
   const loadProfile = async (userProfile) => {
     try {
       const response = await getUser(userProfile);
-      // console.log(response);
+
       const { user } = response.data;
-      // console.log(user);
+
       setUserProfile(user);
-      // console.log(userPerfil);
     } catch (err) {
       console.error(err);
 
@@ -75,7 +84,13 @@ function App() {
   if (loading) {
     return (
       <div className="loading">
-        <p>Carregando...</p>
+        <img
+          src={loadingImage}
+          alt=""
+          className="loading-image"
+          loading="lazy"
+        />
+        <p className="loading-text">Carregando ...</p>
       </div>
     );
   }
@@ -105,7 +120,10 @@ function App() {
             />
           }
         />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/register"
+          element={<RegisterPage users={users} setUsers={setUsers} />}
+        />
       </Routes>
     </Router>
   );
