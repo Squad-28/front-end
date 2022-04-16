@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { createUser } from "../../services/api";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 import FotoCadastro from "./assets/fotocadastro.svg";
 import addIcon from "./assets/add-icon.svg";
@@ -25,10 +25,11 @@ const Register = ({ users, setUsers }) => {
   const [newKnowledgeName, setNewKnowledgeName] = useState("");
 
   const [error, setError] = useState(false);
-  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
 
   const inputKnowledges = useRef();
   const addKnowledgeButton = useRef();
+  const subitButton = useRef();
 
   const [status, setStatus] = useState({
     type: "",
@@ -55,7 +56,7 @@ const Register = ({ users, setUsers }) => {
     const data = Object.assign(user);
     console.log(data);
 
-    /* try {
+    try {
       const response = await createUser(data);
 
       setUsers((oldState) => [...oldState, response]);
@@ -65,7 +66,7 @@ const Register = ({ users, setUsers }) => {
       console.error(err);
 
       return setError(true);
-    } */
+    }
   };
 
   const windowReload = (e) => {
@@ -132,20 +133,29 @@ const Register = ({ users, setUsers }) => {
     setknowledges(knowledgeRemoved);
   };
 
-  const handleOpenConfirmModal = () => {
-    setIsConfirmModalOpen(true);
+  const handleOpenRegisterModal = () => {
+    setIsRegisterModalOpen(true);
   };
 
-  const handleCloseConfirmModal = () => {
-    setIsConfirmModalOpen(false);
+  const handleCloseRegisterModal = () => {
+    setIsRegisterModalOpen(false);
   };
+
+  if (
+    userName !== "" &&
+    userEmail !== "" &&
+    userPassword !== "" &&
+    userLevel !== ""
+  ) {
+    subitButton.current.removeAttribute("disabled");
+  }
 
   return (
     <div>
       <NavLogin />
       <RegisterModal
-        isOpen={isConfirmModalOpen}
-        onRequestClose={handleCloseConfirmModal}
+        isOpen={isRegisterModalOpen}
+        onRequestClose={handleCloseRegisterModal}
       />
       <div>
         <h2 className="register-title">
@@ -248,7 +258,12 @@ const Register = ({ users, setUsers }) => {
               </div>
             </div>
             <div className="register-actions">
-              <button type="submit" onClick={handleOpenConfirmModal}>
+              <button
+                disabled
+                type="submit"
+                onClick={handleOpenRegisterModal}
+                ref={subitButton}
+              >
                 Cadastrar
               </button>
             </div>

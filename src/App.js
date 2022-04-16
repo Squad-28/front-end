@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { getUsers, getUser } from "./services/api";
+import Modal from 'react-modal';
 
 import loadingImage from "./assets/loading.svg";
 
@@ -11,7 +12,9 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage/index";
 import RegisterPage from "./pages/RegisterPage/index";
 
-function App() {
+Modal.setAppElement('#root');
+
+const App = () => {
   // Get All
   const [users, setUsers] = useState([]);
 
