@@ -20,13 +20,13 @@ const Register = ({ users, setUsers }) => {
   const [userLevel, setUserLevel] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
-  const [skills, setSkills] = useState([]);
-  const [newSkillName, setNewSkillName] = useState("");
+  const [knowledges, setknowledges] = useState([]);
+  const [newKnowledgeName, setNewKnowledgeName] = useState("");
 
   const [error, setError] = useState(false);
 
-  const inputSkill = useRef();
-  const addSkillButton = useRef();
+  const inputKnowledges = useRef();
+  const addKnowledgeButton = useRef();
 
   const [status, setStatus] = useState({
     type: "",
@@ -47,11 +47,14 @@ const Register = ({ users, setUsers }) => {
       email: userEmail,
       level: userLevel,
       password: userPassword,
-      skills: skills,
+      knowledges: knowledges,
     };
 
+    const data = Object.assign(user);
+    //console.log(data);
+
     try {
-      const response = await createUser(user);
+      const response = await createUser(data);
 
       setUsers((oldState) => [...oldState, response]);
 
@@ -107,22 +110,24 @@ const Register = ({ users, setUsers }) => {
     return true;
   };
 
-  const handleAddNewSkill = () => {
-    if (!newSkillName) return;
+  const handleAddNewKnowledge = () => {
+    if (!newKnowledgeName) return;
 
-    const newSkill = {
+    const newKnowledge = {
       id: uuidv4(),
-      name: newSkillName,
+      name: newKnowledgeName,
     };
 
-    setSkills((oldState) => [...oldState, newSkill]);
-    setNewSkillName("");
+    setknowledges((oldState) => [...oldState, newKnowledge]);
+    setNewKnowledgeName("");
   };
 
-  const handleRemoveSkill = (id) => {
-    const skillRemoved = skills.filter((skill) => skill.id !== id);
+  const handleRemoveKnowledge = (id) => {
+    const knowledgeRemoved = knowledges.filter(
+      (knowledge) => knowledge.id !== id
+    );
 
-    setSkills(skillRemoved);
+    setknowledges(knowledgeRemoved);
   };
 
   return (
@@ -183,38 +188,44 @@ const Register = ({ users, setUsers }) => {
               {status.type === "password" ? <span>{status.msg}</span> : ""}
             </div>
             <div className="register-field">
-              <label htmlFor="skills">Habilidades</label>
+              <label htmlFor="knowledges">Habilidades</label>
               <div className="register-field-addIcon">
                 <input
                   type="text"
-                  id="skills"
-                  value={newSkillName}
-                  ref={inputSkill}
-                  onChange={(e) => setNewSkillName(e.target.value)}
+                  id="knowledges"
+                  value={newKnowledgeName}
+                  ref={inputKnowledges}
+                  onChange={(e) => setNewKnowledgeName(e.target.value)}
                 />
                 <img
                   src={addIcon}
                   alt=""
                   className="register-addIcon"
-                  ref={addSkillButton}
-                  onClick={handleAddNewSkill}
+                  ref={addKnowledgeButton}
+                  onClick={handleAddNewKnowledge}
                 />
-                <div className="register-field-skills">
+                <div className="register-field-knowledges">
                   <ul>
-                    {skills.map((skill) => {
-                      if (skills.length > 4) {
-                        inputSkill.current.setAttribute("disabled", "true");
-                        addSkillButton.current.setAttribute("hidden", "true");
+                    {knowledges.map((knowledge) => {
+                      if (knowledges.length > 4) {
+                        inputKnowledges.current.setAttribute(
+                          "disabled",
+                          "true"
+                        );
+                        addKnowledgeButton.current.setAttribute(
+                          "hidden",
+                          "true"
+                        );
                       } else {
-                        inputSkill.current.removeAttribute("disabled");
-                        addSkillButton.current.removeAttribute("hidden");
+                        inputKnowledges.current.removeAttribute("disabled");
+                        addKnowledgeButton.current.removeAttribute("hidden");
                       }
                       return (
                         <li
-                          key={skill.id}
-                          onClick={() => handleRemoveSkill(skill.id)}
+                          key={knowledge.id}
+                          onClick={() => handleRemoveKnowledge(knowledge.id)}
                         >
-                          {skill.name}
+                          {knowledge.name}
                         </li>
                       );
                     })}

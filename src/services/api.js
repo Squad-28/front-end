@@ -54,7 +54,7 @@ export const getUser = async (userId) => {
 export const createUser = async (user) => {
   let url = `/users`;
 
-  const response = await api.post(url, user);
+  const response = await api.post(url, { user });
 
   return response;
 };

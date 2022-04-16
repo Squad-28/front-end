@@ -85,7 +85,7 @@
   cursor: pointer;
 }
 
-.register-content .register-field .register-field-skills {
+.register-content .register-field .register-field-knowledges {
   width: 100%;
   min-height: max-content;
   max-height: 110px;
@@ -96,7 +96,7 @@
 }
 
 
-.register-content .register-field .register-field-skills li {
+.register-content .register-field .register-field-knowledges li {
   display: inline-block;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -108,7 +108,7 @@
   cursor: pointer;
 }
 
-.register-content .register-field .register-field-skills li:hover {
+.register-content .register-field .register-field-knowledges li:hover {
   color: #fff;
   background-color: #464675;
 }
