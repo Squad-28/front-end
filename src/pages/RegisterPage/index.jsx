@@ -10,6 +10,7 @@ import FotoCadastro from "./assets/fotocadastro.svg";
 import addIcon from "./assets/add-icon.svg";
 
 import NavLogin from "../../components/NavLogin";
+import RegisterModal from "../../components/RegisterModal";
 
 import "./style.css";
 
@@ -24,6 +25,7 @@ const Register = ({ users, setUsers }) => {
   const [newKnowledgeName, setNewKnowledgeName] = useState("");
 
   const [error, setError] = useState(false);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 
   const inputKnowledges = useRef();
   const addKnowledgeButton = useRef();
@@ -51,9 +53,9 @@ const Register = ({ users, setUsers }) => {
     };
 
     const data = Object.assign(user);
-    //console.log(data);
+    console.log(data);
 
-    try {
+    /* try {
       const response = await createUser(data);
 
       setUsers((oldState) => [...oldState, response]);
@@ -63,7 +65,7 @@ const Register = ({ users, setUsers }) => {
       console.error(err);
 
       return setError(true);
-    }
+    } */
   };
 
   const windowReload = (e) => {
@@ -130,9 +132,21 @@ const Register = ({ users, setUsers }) => {
     setknowledges(knowledgeRemoved);
   };
 
+  const handleOpenConfirmModal = () => {
+    setIsConfirmModalOpen(true);
+  };
+
+  const handleCloseConfirmModal = () => {
+    setIsConfirmModalOpen(false);
+  };
+
   return (
     <div>
       <NavLogin />
+      <RegisterModal
+        isOpen={isConfirmModalOpen}
+        onRequestClose={handleCloseConfirmModal}
+      />
       <div>
         <h2 className="register-title">
           bem-vindo ao <br />
@@ -234,7 +248,9 @@ const Register = ({ users, setUsers }) => {
               </div>
             </div>
             <div className="register-actions">
-              <button type="submit">Cadastrar</button>
+              <button type="submit" onClick={handleOpenConfirmModal}>
+                Cadastrar
+              </button>
             </div>
             <div className="register-login">
               <p>
